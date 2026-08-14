@@ -23,7 +23,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3002/auth/login",
+        "https://trading-platform-clone.onrender.com/auth/login",
         formData
       );
 

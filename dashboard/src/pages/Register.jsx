@@ -24,7 +24,7 @@ const Register = () => {
 
     try {
       await axios.post(
-        "http://localhost:3002/auth/register",
+        "https://trading-platform-clone.onrender.com/auth/register",
         formData
       );
 
