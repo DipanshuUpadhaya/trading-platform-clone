@@ -204,6 +204,10 @@ app.get("/allHoldings",async(req, res)=>{
    res.json(allHoldings);
 });
 
+app.get("/",(req,res)=>{
+  res.send("Trading Platform Backend Running");
+});
+
 app.get("/allPositions",async(req, res)=>{
   let allPositions=await PositionsModel.find({});
   res.json(allPositions);
