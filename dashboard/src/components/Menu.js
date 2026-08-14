@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Menu = () => {
+  const navigate = useNavigate();
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
@@ -15,9 +18,10 @@ const Menu = () => {
   };
 
   const logout = () => {
-  localStorage.removeItem("token");
-  window.location.href = "/login";
-};
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
@@ -25,9 +29,10 @@ const Menu = () => {
   return (
     <div className="menu-container">
       <img
-  src="logo.png"
-  alt="Trading Platform Logo"
-  style={{ width: "50px" }}/>
+        src="logo.png"
+        alt="Trading Platform Logo"
+        style={{ width: "50px" }}
+      />
       <div className="menus">
         <ul>
           <li>
@@ -103,10 +108,10 @@ const Menu = () => {
           <p className="username">USERID</p>
         </div>
         {isProfileDropdownOpen && (
-  <div className="profile-dropdown">
-    <p onClick={logout}>Logout</p>
-  </div>
-)}
+          <div className="profile-dropdown">
+            <p onClick={logout}>Logout</p>
+          </div>
+        )}
       </div>
     </div>
   );
